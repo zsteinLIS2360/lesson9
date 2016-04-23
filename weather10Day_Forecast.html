@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    
+<!-- 
+    Program Name:   Seminole Weather Channel
+    Author: 
+    Date: 
+    Filename:   weather10Day_Forecast.html
+-->
+
+<head>
+    <script type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">    
+    <script src="apixu_forecast.js"></script>  
+    
+<!-- 
+    Section #1:     This section adds interactivity to your application.   
+        
+    Explanation:    In the script below, when the HTML page loads successfully, the section where the
+                    id is 'WeatherStuff' will hide.  The 'WeatherStuff' section of the code contains the
+                    table/panel where the weather data will be placed after the weather data is retrieved
+                    from the server.  
+                    
+                    If the user clicks the button, which as an id of 'Weather', the 'WeatherStuff' table/panel
+                    will appear/show with the weather data retrieved from the server.
+                    
+    Instructions:   NOTHING NEEDS TO BE MODIFIED.
+-->
+    
+    <script>
+        $(document).ready(function(){
+            $("#WeatherStuff").hide();
+   
+            $("#Weather").click(function(){
+                $("#WeatherStuff").show();
+            });
+        });
+    </script>
+</head>
+
+<!-- 
+    Section #2:      The following section displays the 10 day weather forecast data retreived from the web 
+                     service (Apixu API).  
+    
+    Explanation:     Placeholders or ids are defined in the HTML code below to indicate where the values retrieved from
+                     the server will be placed.  Bootstrap framework is used to design the table/panels used to display the 
+                     weather data.
+    
+    ID's defined:    Location, Region, CurTemp, and FeelsLike.
+    
+    Instructions:    NOTHING NEEDS TO BE MODIFIED.
+-->
+
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-primary text-center">Seminole Weather Channel</h1>      
+    <center><p class="text-primary">Find the Weather for your favorite city!</p> </center>   
+  </div>  
+  
+  <p class="list-group-item-text lead text-primary text-center">Enter the Location (zipcode, IP address, Latitude/Longitude (decimal degree) or city name), then Click <b>Weather</b>:</p><br />
+
+  <p class="list-group-item-text lead text-primary text-center"> Location: <input type="text" id="searchValue"></p><br />
+
+  <center><button type="submit" class="btn-lg btn-info" id="Weather" ><span class="glyphicon glyphicon-search"></span>Weather</button></center>
+    
+  <br /><br />
+
+  <div class="panel panel-default" id="WeatherStuff">
+  <div class="panel-body">
+        
+  <div class="container-fluid">
+  <h1 class="text-primary">Location Information:</h1><br>
+
+
+  <div class="WStuff">
+   <div class="row">
+    <div class="col-sm-2"></div> 
+    
+    <div class="col-sm-4" style="background-color:lavender;"><h3 class="list-group-item-heading"><b>Location:</b></h3>  
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Location"> </p></div> 
+       <div class="container"></div>
+    </div>
+
+    <div class="col-sm-4" style="background-color:lavender;"><h3 class="list-group-item-heading"><b>Region:</b></h3> 
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Region"> </p></div> 
+       <div class="container"></div>
+    </div>
+
+    <div class="col-sm-2"></div>
+  </div>
+
+<div class="container-fluid">
+  <h1 class="text-primary">Current Weather Information:</h1><br>
+
+
+  <div class="CurrentWeather">
+    <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4" style="background-color:lightblue;"><h3 class="list-group-item-heading"><b>Current Temperature:</b></h3>  
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="CurTemp"> </p></div> 
+       <div class="container"></div>
+       </div>
+
+    <div class="col-sm-4" style="background-color:lightblue;"><h3 class="list-group-item-heading"><b>Feels Like:</b></h3> 
+        <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="FeelsLike"> </p></div> 
+        <div class="container"></div>
+    </div>
+
+    <div class="col-sm-2"></div>
+</div>
+<!-- 
+    Section #3:      The following section WILL display the 10 day weather forecast data retreived from the web 
+                     service (Apixu API).  
+    
+    Explanation:     Placeholders or ids are defined in the HTML code below to indicate where the values retrieved from
+                     the server will be placed.  Bootstrap framework is used to design the table/panels used to display the 
+                     weather data.
+    
+    ID's defined:    Day1Low, Day1High, Day2Low, Day2High, Day3Low, Day3High.
+    
+    Instructions:    Copy AND modify the code below where indicated to add additional id's and text for Day 4-10.
+                     (See Figure in the assignment instructions for an example!)
+-->
+
+
+ <div class="container-fluid">
+  <h1 class="text-primary">Ten Day Forecast:</h1><br>
+  <div class="CurrentWeather">
+      
+      
+  <div class="row">
+    <div class="col-sm-2"></div>
+       <div class="col-sm-4" style="background-color:lightpink;"><h3 class="list-group-item-heading"><b>Day 1 Low:</b></h3>  
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Day1Low"> </p></div> 
+    <div class="container"></div>
+    </div>
+ 
+    <div class="col-sm-4" style="background-color:lightpink;"><h3 class="list-group-item-heading"><b>Day 1 High:</b></h3> 
+        <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Day1High"> </p></div> 
+        <div class="container"></div>
+    </div>
+
+       <div class="col-sm-2"></div>
+    </div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4" style="background-color:lightpink;"><h3 class="list-group-item-heading"><b>Day 2 Low:</b></h3>  
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Day2Low"> </p></div> 
+       <div class="container"></div>
+    </div>
+
+ 
+    <div class="col-sm-4" style="background-color:lightpink;"><h3 class="list-group-item-heading"><b>Day 2 High:</b></h3> 
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Day2High"> </p></div> 
+       <div class="container"></div>
+    </div>
+
+    <div class="col-sm-2"></div>
+ </div>
+
+<!-- START HERE TO COPY AND MODIFY THE CODE BELOW TO ADD ADDITIONAL ROWS FOR WEATHER FORECAST FOR DAYS 4-10  --> 
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4" style="background-color:lightpink;"><h3 class="list-group-item-heading"><b>Day 3 Low:</b></h3>  
+      <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Day3Low"> </p></div> 
+      <div class="container"></div>
+    </div>
+ 
+    <div class="col-sm-4" style="background-color:lightpink;"><h3 class="list-group-item-heading"><b>Day 3 High:</b></h3> 
+       <div class="well" well-sm><p class="list-group-item-text lead text-primary" id="Day3High"> </p></div> 
+       <div class="container"></div>
+    </div>
+
+    <div class="col-sm-2"></div>
+</div>
+
+<!--  STOP COPY HERE TO ADD ADDITIONAL ROWS FOR WEATHER FORECAST FOR DAYS 4-10 -->
+
+
+<!--  PASTE AND MODIFY YOUR NEW ROWS BELOW THIS TO ADD PLACEHOLDERS FOR FORECASTS FOR DAYS 4-10!!! DO THIS SEVEN TIMES!!!!!-->
+
+
+
+
+
+
+
+
+
+<!-- END OF HTML CODE TO CREATE THE ROWS OR PLACEHOLDERS FOR 10 DAY FORECAST RETRIEVED FROM THE SERVER -->
+</div>
+</div>
+  
+  </div>
+
+
+ 
+</body>
+
+</html>
